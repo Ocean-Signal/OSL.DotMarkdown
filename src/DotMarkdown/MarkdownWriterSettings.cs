@@ -8,17 +8,20 @@ namespace DotMarkdown;
 [DebuggerDisplay("NewLineHandling = {NewLineHandling} CloseOutput = {CloseOutput}")]
 public class MarkdownWriterSettings
 {
-    public MarkdownWriterSettings(
-        MarkdownFormat? format = null,
-        string? newLineChars = null,
-        NewLineHandling newLineHandling = NewLineHandling.Replace,
-        bool closeOutput = false)
+    public MarkdownWriterSettings(MarkdownFormat? format          = null,
+        string?                                   newLineChars    = null,
+        NewLineHandling                           newLineHandling = NewLineHandling.Replace,
+        bool                                      closeOutput     = false,
+        MarkdownCharEscaper?                      escapeStrategy  = null
+    )
     {
         Format = format ?? MarkdownFormat.Default;
         NewLineChars = newLineChars ?? Environment.NewLine;
         NewLineHandling = newLineHandling;
         CloseOutput = closeOutput;
+        Escaper = escapeStrategy ?? MarkdownCharEscaper.Default;
     }
+
 
     public static MarkdownWriterSettings Default { get; } = new();
 
@@ -33,6 +36,9 @@ public class MarkdownWriterSettings
     public NewLineHandling NewLineHandling { get; }
 
     public bool CloseOutput { get; }
+
+    public MarkdownCharEscaper Escaper { get; }
+
 
     public MarkdownWriterSettings WithFormat(MarkdownFormat format)
     {
@@ -54,10 +60,13 @@ public class MarkdownWriterSettings
         return new MarkdownWriterSettings(Format, NewLineChars, NewLineHandling, closeOutput);
     }
 
+    public MarkdownWriterSettings WithDefaultEscaper(MarkdownCharEscaper escaper) =>
+        new(Format, NewLineChars, NewLineHandling, CloseOutput, escaper);
+
     internal static MarkdownWriterSettings From(MarkdownFormat? format)
     {
         if (format is null
-            || object.ReferenceEquals(format, MarkdownFormat.Default))
+            || ReferenceEquals(format, MarkdownFormat.Default))
         {
             return Default;
         }

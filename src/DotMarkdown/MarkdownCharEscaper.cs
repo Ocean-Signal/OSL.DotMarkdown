@@ -2,7 +2,7 @@
 
 namespace DotMarkdown;
 
-internal abstract class MarkdownCharEscaper
+public abstract class MarkdownCharEscaper
 {
     public static char DefaultEscapingChar { get; } = '\\';
 
