@@ -1,16 +1,15 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'!='Release|AnyCPU'">
-    <TargetFramework>netstandard1.3</TargetFramework>
+    <TargetFrameworks>netstandard2.0;net8.0</TargetFrameworks>
   </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <TargetFrameworks>netstandard1.3</TargetFrameworks>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'!='Debug|AnyCPU'">
+    <TargetFrameworks>netstandard2.0;net8.0</TargetFrameworks>
   </PropertyGroup>
 
   <PropertyGroup>
-    <AssemblyName>DotMarkdown</AssemblyName>
-    <RootNamespace>DotMarkdown</RootNamespace>
+    <AssemblyName>OSL.DotMarkdown</AssemblyName>
+    <RootNamespace>OSL.DotMarkdown</RootNamespace>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
 
@@ -20,13 +19,14 @@
 
   <PropertyGroup>
     <IsPackable>true</IsPackable>
-    <PackageId>DotMarkdown</PackageId>
-    <Description>DotMarkdown enables to conveniently create markdown content from the code.
+    <PackageId>OSL.DotMarkdown</PackageId>
+    <Description>DotMarkdown enables convenient programmatic generation of Markdown documents.
 
 Commonly Used Types:
-DotMarkdown.MarkdownWriter
-DotMarkdown.MarkdownFormat
-DotMarkdown.Linq.MFactory</Description>
+OSL.DotMarkdown.MarkdownWriter
+OSL.DotMarkdown.MarkdownFormat
+OSL.DotMarkdown.Linq.MFactory</Description>
+    <NuGetAuditLevel>moderate</NuGetAuditLevel>
   </PropertyGroup>
 
   <ItemGroup>

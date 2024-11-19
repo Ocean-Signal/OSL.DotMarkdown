@@ -4,8 +4,8 @@ DotMarkdown enables to conveniently create markdown content from the code.
 
 ## Supported Frameworks
 
-* .NET Standard 1.3
-* .NET Framework 4.5
+* .NET Standard 2.0
+* .NET 8.0
 
 ## Documentation
 
