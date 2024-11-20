@@ -26,4 +26,10 @@
       <_Parameter1>DotMarkdown.Docusaurus.Tests, PublicKey=$(DotMarkdownPublicKey)</_Parameter1>
     </AssemblyAttribute>
   </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="GitVersion.MsBuild" Version="6.0.5">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
 </Project>
