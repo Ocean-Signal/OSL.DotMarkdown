@@ -242,10 +242,7 @@ public class MarkdownFormat : IEquatable<MarkdownFormat>
 
     public AngleBracketEscapeStyle AngleBracketEscapeStyle { get; }
 
-    public override bool Equals(object obj)
-    {
-        return Equals(obj as MarkdownFormat);
-    }
+    public override bool Equals(object? obj) => Equals(obj as MarkdownFormat);
 
     public bool Equals(MarkdownFormat? other)
     {

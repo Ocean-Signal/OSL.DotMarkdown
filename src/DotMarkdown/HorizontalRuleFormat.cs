@@ -64,11 +64,9 @@ public readonly struct HorizontalRuleFormat : IEquatable<HorizontalRuleFormat>
         return true;
     }
 
-    public override bool Equals(object obj)
-    {
-        return (obj is HorizontalRuleFormat other)
-            && Equals(other);
-    }
+    public override bool Equals(object? obj) =>
+        (obj is HorizontalRuleFormat other)
+        && Equals(other);
 
     public bool Equals(HorizontalRuleFormat other)
     {

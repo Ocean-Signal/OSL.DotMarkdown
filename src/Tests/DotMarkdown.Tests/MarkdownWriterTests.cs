@@ -619,7 +619,7 @@ public static class MarkdownWriterTests
     [InlineData("", "")]
     [InlineData(" ", " ")]
     [InlineData(Chars, CharsEscaped)]
-    public static void MarkdownWriter_WriteTaskItem(string text, string text2)
+    public static void MarkdownWriter_WriteTaskItem(string? text, string text2)
     {
         MarkdownWriter mw = CreateWriter();
         const string start = "- [ ] ";
@@ -635,7 +635,7 @@ public static class MarkdownWriterTests
     [InlineData("", "")]
     [InlineData(" ", " ")]
     [InlineData(Chars, CharsEscaped)]
-    public static void MarkdownWriter_Write_TaskItem(string text, string text2)
+    public static void MarkdownWriter_Write_TaskItem(string? text, string text2)
     {
         MarkdownWriter mw = CreateWriter();
         const string start = "- [ ] ";
@@ -651,7 +651,7 @@ public static class MarkdownWriterTests
     [InlineData("", "")]
     [InlineData(" ", " ")]
     [InlineData(Chars, CharsEscaped)]
-    public static void MarkdownWriter_Write_TaskItem_Completed(string text, string text2)
+    public static void MarkdownWriter_Write_TaskItem_Completed(string? text, string text2)
     {
         MarkdownWriter mw = CreateWriter();
         const string start = "- [x] ";
@@ -667,12 +667,12 @@ public static class MarkdownWriterTests
     [InlineData("", "")]
     [InlineData(" ", " ")]
     [InlineData(Chars, CharsEscaped)]
-    public static void MarkdownWriter_WriteCompletedTaskItem(string text, string text2)
+    public static void MarkdownWriter_WriteCompletedTaskItem(string? text, string text2)
     {
-        MarkdownWriter mw = CreateWriter();
-        const string start = "- [x] ";
-        string expected = start + text2 + CharsEscaped + NewLine + "  " + start + text2 + NewLine;
-        MTaskItem item = CompletedTaskItem(text + Chars, CompletedTaskItem(text));
+        MarkdownWriter mw       = CreateWriter();
+        const string   start    = "- [x] ";
+        string         expected = start + text2 + CharsEscaped + NewLine + "  " + start + text2 + NewLine;
+        var            item     = CompletedTaskItem(text + Chars, CompletedTaskItem(text ?? string.Empty));
         item.WriteTo(mw);
 
         Assert.Equal(expected, mw.ToStringAndClear());
@@ -846,7 +846,7 @@ public static class MarkdownWriterTests
     [InlineData("&#x", "X", null)]
     [InlineData("&#x", "X", CharEntityFormat.Hexadecimal)]
     [InlineData("&#", null, CharEntityFormat.Decimal)]
-    public static void MarkdownWriter_WriteHtmlEntity(string syntax, string format, CharEntityFormat? htmlEntityFormat)
+    public static void MarkdownWriter_WriteHtmlEntity(string syntax, string? format, CharEntityFormat? htmlEntityFormat)
     {
         MarkdownWriter mw = CreateBuilderWithHtmlEntityFormat(htmlEntityFormat);
 
@@ -861,7 +861,7 @@ public static class MarkdownWriterTests
     [InlineData("&#x", "X", null)]
     [InlineData("&#x", "X", CharEntityFormat.Hexadecimal)]
     [InlineData("&#", null, CharEntityFormat.Decimal)]
-    public static void MarkdownWriter_Write_HtmlEntity(string syntax, string format, CharEntityFormat? htmlEntityFormat)
+    public static void MarkdownWriter_Write_HtmlEntity(string syntax, string? format, CharEntityFormat? htmlEntityFormat)
     {
         MarkdownWriter mw = CreateBuilderWithHtmlEntityFormat(htmlEntityFormat);
 

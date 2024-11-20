@@ -70,11 +70,9 @@ public readonly struct TableColumnInfo : IEquatable<TableColumnInfo>
             isWhiteSpace: isWhiteSpace);
     }
 
-    public override bool Equals(object obj)
-    {
-        return (obj is TableColumnInfo other)
-            && Equals(other);
-    }
+    public override bool Equals(object? obj) =>
+        (obj is TableColumnInfo other)
+        && Equals(other);
 
     public bool Equals(TableColumnInfo other)
     {

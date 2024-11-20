@@ -40,7 +40,7 @@ public class MTable : MContainer
         }
         else
         {
-            MElement header = rows.FirstOrDefault();
+            var header = rows.FirstOrDefault();
 
             if (header is null)
                 return;

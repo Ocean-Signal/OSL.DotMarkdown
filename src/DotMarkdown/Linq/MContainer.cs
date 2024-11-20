@@ -306,8 +306,9 @@ public abstract class MContainer : MElement
         content = e;
     }
 
-    internal void AddString(string s)
+    internal void AddString(string? s)
     {
+        if (s is null) return;
         ValidateString(s);
 
         if (content is null)
@@ -364,7 +365,7 @@ public abstract class MContainer : MElement
         Error.InvalidContent(this, element);
     }
 
-    internal virtual void ValidateString(string s)
+    internal virtual void ValidateString(string? s)
     {
     }
 

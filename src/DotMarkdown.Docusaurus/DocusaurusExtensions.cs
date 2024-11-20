@@ -138,13 +138,9 @@ public static class DocusaurusExtensions
             throw new InvalidOperationException("Docusarus front matter value is null.");
 
         if (value is string s)
-        {
             writer.WriteFrontMatterValue(s);
-        }
         else
-        {
-            writer.WriteString(value.ToString());
-        }
+            writer.WriteString(value?.ToString() ?? string.Empty);
     }
 
     private static void WriteFrontMatterValue(this MarkdownWriter writer, string value)

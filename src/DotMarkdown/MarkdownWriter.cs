@@ -61,7 +61,7 @@ public abstract class MarkdownWriter : IDisposable
     public static MarkdownWriter Create(string fileName, MarkdownWriterSettings? settings = null)
     {
         if (settings is null
-            || object.ReferenceEquals(settings, MarkdownWriterSettings.Default))
+            || ReferenceEquals(settings, MarkdownWriterSettings.Default))
         {
             settings = MarkdownWriterSettings.DefaultCloseOutput;
         }
@@ -377,7 +377,7 @@ public abstract class MarkdownWriter : IDisposable
 
     public abstract void WriteComment(string text);
 
-    internal void Write(object value)
+    internal void Write(object? value)
     {
         if (value is null)
             return;
@@ -410,7 +410,7 @@ public abstract class MarkdownWriter : IDisposable
             return;
         }
 
-        WriteString(value.ToString());
+        WriteString(value?.ToString() ?? string.Empty);
     }
 
     public abstract void Flush();

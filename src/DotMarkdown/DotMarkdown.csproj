@@ -20,7 +20,8 @@
   <PropertyGroup>
     <IsPackable>true</IsPackable>
     <PackageId>OSL.DotMarkdown</PackageId>
-    <Description>DotMarkdown enables convenient programmatic generation of Markdown documents.
+    <Description>OSL.DotMarkdown enables convenient programmatic generation of Markdown documents.
+Forked from an original project by Josef Phirt. Updated to support .netstandard2.0 and .net8.0
 
 Commonly Used Types:
 OSL.DotMarkdown.MarkdownWriter
@@ -31,10 +32,22 @@ OSL.DotMarkdown.Linq.MFactory</Description>
     <Authors>Josef Pihrt, Tim Long (Ocean Signal)</Authors>
     <Company>$(Company)</Company>
     <ApplicationIcon>OSL.Markdown.ico</ApplicationIcon>
+    <PackageProjectUrl>https://github.com/Ocean-Signal/OSL.DotMarkdown</PackageProjectUrl>
+    <PackageIcon>OSL.Markdown.png</PackageIcon>
+    <RepositoryUrl>https://github.com/Ocean-Signal/OSL.DotMarkdown</RepositoryUrl>
+    <PackageReleaseNotes>A fork of dotMarkdown, customised for use at OSL</PackageReleaseNotes>
+    <IncludeSymbols>True</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <EnableNETAnalyzers>False</EnableNETAnalyzers>
+    <AnalysisLevel>latest-recommended</AnalysisLevel>
   </PropertyGroup>
 
   <ItemGroup>
     <None Include="..\..\images\dotmarkdown-logo-small.png" Pack="true" PackagePath="icon.png" Visible="false" />
+    <None Include="..\..\images\OSL.Markdown.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
     <None Include="docs\NuGetReadme.md" Pack="true" PackagePath="docs\README.md" />
   </ItemGroup>
 
