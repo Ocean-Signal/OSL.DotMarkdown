@@ -27,6 +27,10 @@ OSL.DotMarkdown.MarkdownWriter
 OSL.DotMarkdown.MarkdownFormat
 OSL.DotMarkdown.Linq.MFactory</Description>
     <NuGetAuditLevel>moderate</NuGetAuditLevel>
+    <Title>A .net markdown creation utility</Title>
+    <Authors>Josef Pihrt, Tim Long (Ocean Signal)</Authors>
+    <Company>$(Company)</Company>
+    <ApplicationIcon>OSL.Markdown.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
@@ -44,6 +48,10 @@ OSL.DotMarkdown.Linq.MFactory</Description>
     <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleToAttribute">
       <_Parameter1>DotMarkdown.Docusaurus.Tests, PublicKey=$(DotMarkdownPublicKey)</_Parameter1>
     </AssemblyAttribute>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="OSL.Markdown.ico" />
   </ItemGroup>
 
   <ItemGroup>
