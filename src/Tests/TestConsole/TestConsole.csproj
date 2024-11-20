@@ -1,16 +1,13 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <OutputType>Exe</OutputType>
     <AssemblyName>DotMarkdown.TestConsole</AssemblyName>
     <RootNamespace>DotMarkdown.TestConsole</RootNamespace>
     <IsPackable>false</IsPackable>
   </PropertyGroup>
-
   <ItemGroup>
     <ProjectReference Include="..\..\DotMarkdown\DotMarkdown.csproj" />
     <ProjectReference Include="..\..\DotMarkdown.Docusaurus\DotMarkdown.Docusaurus.csproj" />
   </ItemGroup>
-
 </Project>

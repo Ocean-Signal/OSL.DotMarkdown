@@ -39,6 +39,7 @@ internal abstract class MarkdownBaseWriter : MarkdownWriter
             CodeFenceStyle.Tilde => new Lazy<Regex>(() => new Regex("^~{3,}", RegexOptions.Multiline)),
             _ => throw new InvalidOperationException(ErrorMessages.UnknownEnumValue(Format.CodeFenceStyle)),
         };
+        Escaper = settings?.Escaper ?? MarkdownCharEscaper.Default;
     }
 
     public override WriteState WriteState

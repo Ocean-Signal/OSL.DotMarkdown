@@ -1,45 +1,29 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'!='Release|AnyCPU'">
-    <TargetFramework>netstandard1.3</TargetFramework>
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.0;net8.0</TargetFrameworks>
   </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <TargetFrameworks>netstandard1.3;net462</TargetFrameworks>
-  </PropertyGroup>
-
   <PropertyGroup>
     <AssemblyName>DotMarkdown.Docusaurus</AssemblyName>
     <RootNamespace>DotMarkdown.Docusaurus</RootNamespace>
   </PropertyGroup>
-
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
-
-  <ItemGroup>
-    <PackageReference Include="System.ValueTuple" Version="4.5.0" />
-  </ItemGroup>
-
   <ItemGroup>
     <ProjectReference Include="..\DotMarkdown\DotMarkdown.csproj" />
   </ItemGroup>
-
   <PropertyGroup>
     <IsPackable>true</IsPackable>
     <PackageId>DotMarkdown.Docusaurus</PackageId>
     <Description>Extension of DotMarkdown package for Docusaurus markdown</Description>
   </PropertyGroup>
-
   <ItemGroup>
     <None Include="..\..\images\dotmarkdown-logo-small.png" Pack="true" PackagePath="icon.png" Visible="false" />
     <None Include="docs\NuGetReadme.md" Pack="true" PackagePath="docs\README.md" />
   </ItemGroup>
-
   <ItemGroup>
     <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleToAttribute">
       <_Parameter1>DotMarkdown.Docusaurus.Tests, PublicKey=$(DotMarkdownPublicKey)</_Parameter1>
     </AssemblyAttribute>
   </ItemGroup>
-
 </Project>
