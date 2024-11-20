@@ -1,4 +1,5 @@
 ﻿// Copyright (c) Josef Pihrt. All rights reserved. Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
+// Modified by Tim Long, Ocean Signal Ltd
 
 using System;
 using System.Diagnostics;
@@ -67,9 +68,7 @@ public class MarkdownWriterSettings
     {
         if (format is null
             || ReferenceEquals(format, MarkdownFormat.Default))
-        {
             return Default;
-        }
 
         return new MarkdownWriterSettings(format);
     }

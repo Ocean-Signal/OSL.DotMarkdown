@@ -1,5 +1,7 @@
 ﻿// Copyright (c) Josef Pihrt. All rights reserved. Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
+// Modified by Tim Long, Ocean Signal Ltd
 
+using System.Text;
 using Xunit;
 using static DotMarkdown.Tests.TestHelpers;
 
@@ -7,6 +9,19 @@ namespace DotMarkdown.Tests;
 
 public static class MarkdownEscaperTests
 {
+    [Fact]
+    public static void EscaperSetToNoEscape_DoesNotEscapeDotOrDash()
+    {
+        const string expected = "Pi is 3.14159";
+        var          builder  = new StringBuilder();
+        var          settings = MarkdownWriterSettings.Default.WithDefaultEscaper(MarkdownCharEscaper.NoEscape);
+        var          md       = new MarkdownStringWriter(builder, settings);
+        md.WriteString("Pi is 3.14159");
+        md.Close();
+        var actual = builder.ToString();
+        Assert.Equal(expected, actual);
+    }
+
     [Fact]
     public static void MarkdownEscaper_Escape_Chars()
     {
